@@ -2,9 +2,14 @@
   text-align: center;
 }
 
+
+
 .App-header {
   font-size: calc(10px + 2vmin);
   color: #FFD9D9;
+}
+myimg {
+  max-width: 100%
 }
 
 .feed {
@@ -21,6 +26,7 @@
   padding: 20px 10px 0px 10px;
 }
 
+
 .left-bar {
   width: 70px;
   background-color: #FFFFFF;
@@ -30,6 +36,76 @@
   align-items: center;
   padding: 5px 0px;
 }
+.sidenav{
+  height: 100%; 
+  width: 15%;
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0; 
+  background-color:#FF8E8E;
+  transition: .5s ease; 
+  overflow-x: hidden;
+  padding: 15px;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  font-size: 23px;
+  text-align: left;
+}
+.pages
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.sidenav a{
+  text-decoration: none;
+  color: inherit;
+
+}
+.hr { 
+  display: block;
+  margin-end: auto;
+  margin-start: auto;
+  border: 1px inset;
+  overflow: hidden;
+  margin-before: 0.5em;
+  margin-after: 0.5em;
+}
+.groups{
+  padding-top: 50px;
+  color: white;
+}
+.titlediv{
+  color: white;
+  border-bottom: 2px solid white;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.icon-image {
+  float: left;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
+  
+}
+.icon-image img {
+  display: block;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+}
+.main-logo {
+  float: left;
+  padding-bottom: 30px;
+}
+
 
 .right-bar {
   width: 40px;
@@ -277,5 +353,6 @@ input {
 img {
   height: 300px;
 }
+
 
 
