@@ -2,21 +2,23 @@
   text-align: center;
 }
 
-
 .App-header {
-  background-color: #FFFFFF;
+  font-size: calc(10px + 2vmin);
+  color: #FFD9D9;
+}
+
+.feed {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0px;
+  width: 100vw;
 }
 
-.post {
+.post { /*parent for left bar, main-content, and download box, horizontal*/
   display: flex;
   width: 640px;
-  margin-left: 400px;
+  padding: 20px 10px 0px 10px;
 }
 
 .left-bar {
@@ -34,10 +36,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1px 0px;
+  padding: 1px 7px 0px 0px;
 }
 
-.main-content {
+.main-content { /*parent for content and right bar, horizontal*/
   background-color: #FFD9D9;
   flex-grow: 1;
   display: flex;
@@ -45,13 +47,59 @@
   padding: 7px 0px;
 }
 
+.remix-parent { /*parent for the top half and the caption, vertical*/
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.remix-content { /*parent for the album image and the next container, horizontal*/
+  height: 50%;
+  width: 100%;
+  display: flex;
+  /* align-items: center; */
+}
+
+.remix-image {
+  background-color: white;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.remix-info { /*parent container for the remix-name/caption and the media player, vertical*/
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+div.remix-caption {
+  margin-top: 10px;
+}
+
 .text-content {
   background-color: #FFFFFF;
   margin: 0px 10px;
   border-radius: 3px;
-  width: 490px;
+  flex-grow: 1;
   text-align: left;
-  padding-left: 10px;
+  padding: 5px 10px;
+  height: auto;
+  color: #FF8E8E;
+  font-size: 12px;
+}
+
+.remix-name {
+  width: fit-content;
+  margin-bottom: 7px;
+}
+
+audio {
+  height: 45%;
+  width: inherit;
+  margin: 5px 10px 0px;
 }
 
 .artist-image {
@@ -62,22 +110,80 @@
 }
 
 .right-box {
-  width: 40px;
-  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   background-color: white;
   border-radius: 3px;
+  border: 1px solid #FF8E8E;
 }
 
 .top {
   margin-bottom: 3px;
 }
 
+.right-filler {
+  flex-grow: 1;
+}
+
 .center {
+  /* margin-top: auto; */
   margin: 3px 0px;
 }
 
 .bottom {
   margin-top: 3px;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-arrow {
+  width: 0; 
+  height: 0; 
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid #FFD9D9;
+}
+
+.comments-arrow {
+  margin-left: 607px;
+}
+
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFD9D9;
+  border-radius: 3px;
+  padding: 0px 10px;
+  width: 495px;
+  margin-left: 135px;
+}
+
+.single-comment {
+  display: flex;
+  padding: 10px 0px 0px 0px;
+}
+
+.write-comment {
+  display: flex;
+  padding: 10px 0px 10px 0px;
+}
+/* top right bottom left*/
+
+input {
+  color: #FFD9D9;
+  border: none;
+  margin: 0px 10px;
+  flex-grow: 1;
+  border-radius: 3px;
+}
+
+.image-parent { /*contains pic and caption, vertical*/
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .type-indicator {
@@ -89,7 +195,87 @@
   margin-top: 10px;
 }
 
-p {
-  color: #FF8E8E;
+.triangle-left { /*going to have to be modified for past-milestone implementation*/
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 20px solid #FFD9D9;
+  margin-top: 60px;
 }
+
+.profile-element {
+  display: flex;
+  flex-direction: row;
+  min-width: fit-content;
+}
+
+.profile-expand {
+  margin-top: 0px;
+  margin-left: -20px;
+}
+
+.profile-info { /*can't get same line for some reason*/
+  flex: 1;
+}
+
+.report-profile {
+  color: #FFD9D9;
+  flex: 1;
+}
+
+.inner-triangle {
+  position: relative;
+  top: -15px;
+  left: 3px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 20px solid white;
+  z-index: 1;
+}
+
+.download-box {
+  position: relative;
+  top: -52px;
+  left: 20px;
+  /* height: 50px;
+  width: 40px; */
+  background-color: white;;
+  border: 2px solid #FFD9D9;
+  border-radius: 3px;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  white-space: nowrap;
+
+}
+
+.download-element {
+  display: flex;
+  padding: 3px;
+  margin: 3px;
+  /* position: relative;
+  width: auto; */
+}
+
+.file-info {
+  padding: 3px;
+  margin: 3px;
+  width: fit-content;
+  /* min-width: 300px; */
+}
+
+.download-button {
+  margin-top: 0px;
+  height: 25px;
+  width: 25px;
+}
+
+img {
+  height: 300px;
+}
+
 
