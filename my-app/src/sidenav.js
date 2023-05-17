@@ -10,6 +10,7 @@ import lady_gaga from "./icons/Ellipse 15.svg";
 import ariana from "./icons/ariana.svg";
 import beyonce from "./icons/beyonce.svg";
 import cardi_b from "./icons/cardi_b.svg";
+import nicki_minaj from "./icons/Nicki_minaj.svg";
 
 
 const SideNav = (props) => {
@@ -90,6 +91,20 @@ const SideNav = (props) => {
                     <div className= "badge">
                         2
                     </div>
+                
+                </div>
+                <div class="white-box">
+                    <div className = 'artist-name'>
+                        Nicki Minaj
+                    </div>
+                    <div className = 'group-name'>
+                        Barbs
+                    </div>
+                    <div className="artist-image"><img src={nicki_minaj} alt="Discover" /></div>
+                    <div className= "badge">
+                        1
+                    </div>
+                
                 </div>
                 
              </div>

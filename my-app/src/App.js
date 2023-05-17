@@ -3,7 +3,6 @@ import './App.css';
 
 function App() {
   return (
-
     <div className="App">
       <SideNav/>
       <header className="App-header">
