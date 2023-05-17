@@ -8,10 +8,9 @@
   font-size: calc(10px + 2vmin);
   color: #FFD9D9;
 }
-myimg {
+img {
   max-width: 100%
 }
-
 .feed {
   display: flex;
   flex-direction: column;
@@ -66,18 +65,16 @@ myimg {
   color: inherit;
 
 }
-.hr { 
-  display: block;
-  margin-end: auto;
-  margin-start: auto;
-  border: 1px inset;
-  overflow: hidden;
-  margin-before: 0.5em;
-  margin-after: 0.5em;
-}
+
 .groups{
   padding-top: 50px;
   color: white;
+  width: 100%;
+  margin-Bottom: 1rem;
+}
+.titlegroups{
+  color: white;
+  border-Bottom: 2px solid white;
 }
 .titlediv{
   color: white;
@@ -102,8 +99,46 @@ myimg {
   object-fit: contain;
 }
 .main-logo {
-  float: left;
   padding-bottom: 30px;
+}
+
+.white-box {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  position:relative; 
+  top: 10px;
+  margin-bottom: 10px;
+}
+.artist-name
+{
+  color:#FF8E8E;
+  border-bottom: 2px solid #FF8E8E;
+  font-size: 17px;
+  width: 120px;
+  overflow: visible;
+  padding-bottom: 2px;
+}
+.artist-image{
+  float: right;
+  position: relative;
+  top: -45px;
+}
+
+.group-name{
+  color:#FF8E8E;
+  font-size: 12px;
+  padding-top: 2px;
+}
+.badge {
+  position: absolute;
+  top: -5px;
+  right: 42px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: #FF8E8E;
+  color: white;
+  scale: .5;
 }
 
 
@@ -350,7 +385,7 @@ input {
   width: 25px;
 }
 
-img {
+myimg {
   height: 300px;
 }
 

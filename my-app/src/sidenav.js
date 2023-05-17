@@ -6,15 +6,17 @@ import yas_logo from './icons/yas icon.svg';
 import settings_logo from './icons/Gear Icon.svg';
 import main_logo from "./icons/Word Logo.svg";
 
+import lady_gaga from "./icons/Ellipse 15.svg";
+import ariana from "./icons/ariana.svg";
+import beyonce from "./icons/beyonce.svg";
+import cardi_b from "./icons/cardi_b.svg";
+
 
 const SideNav = (props) => {
     return (
         <div className="sidenav">
-            <div className="main-logo"><img src={main_logo} alt="Home" /></div>
-
+            <div className="main-logo"><img src={main_logo} alt="main" /></div>
              <div className='pages'>
-                
-                
                 <div className="titlediv">
                     <div className="icon-image"><img src={logo} alt="Home" /></div>
                     <a href="#section">Home</a>
@@ -37,8 +39,58 @@ const SideNav = (props) => {
                 </div>
 
              </div>
-             <div className='groups' style = {{color: 'white',borderBottom: '2px solid white', width: '100%', marginBottom: '1rem'}} >
-                Your Groups
+             <div className='groups' >
+                <div className="titlegroups">
+                    Your Groups
+                </div>
+                <div class="white-box">
+                    <div className = 'artist-name'>
+                        Lady Gaga
+                    </div>
+                    <div className = 'group-name'>
+                        Little Monsters
+                    </div>
+                    <div className="artist-image"><img src={lady_gaga} alt="Discover" /></div>
+                    <div className= "badge">
+                        3
+                    </div>
+                </div>
+                <div class="white-box">
+                    <div className = 'artist-name'>
+                        Ariana Grande
+                    </div>
+                    <div className = 'group-name'>
+                        Arianators
+                    </div>
+                    <div className="artist-image"><img src={ariana} alt="Discover" /></div>
+                    <div className= "badge">
+                        5
+                    </div>
+                </div>
+                <div class="white-box">
+                    <div className = 'artist-name'>
+                        Beyonce
+                    </div>
+                    <div className = 'group-name'>
+                        Beehive
+                    </div>
+                    <div className="artist-image"><img src={beyonce} alt="Discover" /></div>
+                    <div className= "badge">
+                        8
+                    </div>
+                </div>
+                <div class="white-box">
+                    <div className = 'artist-name'>
+                        Cardi B
+                    </div>
+                    <div className = 'group-name'>
+                        Bardi Gang
+                    </div>
+                    <div className="artist-image"><img src={cardi_b} alt="Discover" /></div>
+                    <div className= "badge">
+                        2
+                    </div>
+                </div>
                 
              </div>
                

@@ -1,10 +1,11 @@
 import SideNav from './sidenav';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
+
     <div className="App">
+      <SideNav/>
       <header className="App-header">
         <p>
           WeStan
