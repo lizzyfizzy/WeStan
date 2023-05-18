@@ -126,6 +126,19 @@ img {
   float: right;
   position: relative;
   top: -45px;
+  border-radius: 50px;
+  background-color:#FF8E8E;
+  width: 50px;
+  height: 50px;
+}
+
+.artist-post-image {
+  float: right;
+  position: relative;
+  border-radius: 50px;
+  background-color:#FF8E8E;
+  width: 50px;
+  height: 50px;
 }
 
 .group-name{
@@ -216,12 +229,6 @@ audio {
   margin: 5px 10px 0px;
 }
 
-.artist-image {
-  border-radius: 50px;
-  background-color:#FF8E8E;
-  width: 50px;
-  height: 50px;
-}
 
 .right-box {
   min-width: 40px;
@@ -392,5 +399,135 @@ myimg {
   height: 300px;
 }
 
+.header-image { 
+  border-radius: 3px;
+  border: 2px solid #FF8E8E;
+  flex-grow: 1 2;
+  display: flex;
+  border-radius: 3px;
+  padding: 7px;
+  width: 100%;
+  height: 150px;
+  position: relative;
+  margin-top: 40px;
+}
 
+.header-image img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+}
 
+.profile-plate {
+  background-color: white;
+  border-radius: 3px;
+  border: 2px solid #FF8E8E;
+  flex-grow: 1 2;
+  display: flex;
+  border-radius: 3px;
+  padding: 7px;
+  width: 100%;
+  position: relative;
+  margin-top: 40px;
+}
+
+.artist-profile-image {
+  float: right;
+  position: relative;
+  border-radius: 50px;
+  background-color:#FF8E8E;
+  width: 50px;
+  height: 50px;
+}
+
+.user-profile-image {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #FF8E8E;
+}
+
+.title{
+  color:#FF8E8E;
+  border-bottom: 2px solid #FF8E8E;
+  font-size: 25px;
+  /* width: 120px; */
+  overflow: visible;
+  padding-bottom: 2px;
+  bottom: 0;
+}
+
+.profile-text {
+  /* border-radius: 3px; */
+  padding-top: 10px;
+  text-align: left;
+  height: auto;
+  color: #FF8E8E;
+  font-size: 15px;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.title-card{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  gap: 30px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.stat-column {
+  flex-direction: column;
+}
+
+.follow-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 3px;
+  background-color:#FF8E8E;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+}
+
+.button-text {
+  color: white;
+  margin-top: 12px;
+  font-size: 20px;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-grow: 1;
+  align-items: flex-end;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.edit-button {
+  border-radius: 3px;
+  background-color:#FF8E8E;
+  width: 120px;
+  height: 50px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

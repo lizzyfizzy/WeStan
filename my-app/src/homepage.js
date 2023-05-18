@@ -11,7 +11,7 @@ function Homepage() {
         <div className="post-container">
           <div className="remix-post post">
             <div className="left-bar">
-              <div className="artist-image">
+              <div className="artist-post-image">
               </div>
               <div className="type-indicator"></div>
             </div>
@@ -76,7 +76,7 @@ function Homepage() {
         <div className="post-container">
           <div className="text-post post">
             <div className="left-bar">
-              <div className="artist-image">
+              <div className="artist-post-image">
 
               </div>
               <div className="type-indicator"></div>
@@ -112,7 +112,7 @@ function Homepage() {
         <div className="post-container">
           <div className="image-post post">
             <div className="left-bar">
-              <div className="artist-image">
+              <div className="artist-post-image">
               </div>
               <div className="type-indicator"></div>
             </div>
