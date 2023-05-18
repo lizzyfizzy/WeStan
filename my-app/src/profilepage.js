@@ -2,13 +2,14 @@ import React from 'react';
 
 import link from './icons/link.svg';
 import dropdown from './icons/dropdown-arrow.svg';
+import beyonce_tour from "./images/beyonce-tour.png"
 
 function Profile() {
     return (
         <div className='feed'>
             <div className='post-container'>
                 <div className='header-image'>
-                    <img src="beyonce-tour.png"/>
+                    <img src={beyonce_tour}/>
                 </div>
                 <div className='profile-plate'>
                     <div className='follow-button'>
