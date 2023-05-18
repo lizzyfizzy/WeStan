@@ -252,7 +252,7 @@ audio {
 .right-box {
   min-width: 40px;
   min-height: 40px;
-  background-color: #FF8E8E;
+  background-color: white;
   border-radius: 3px;
   border: 1px solid #FF8E8E;
   display: flex;
@@ -280,6 +280,10 @@ audio {
 .post-container {
   display: flex;
   flex-direction: column;
+}
+
+.comments-wrapper {
+  display: none;
 }
 
 .comments-arrow {
@@ -349,6 +353,7 @@ input {
   border-bottom: 15px solid transparent;
   border-right: 20px solid #FFD9D9;
   margin-top: 60px;
+  display: none;
 }
 
 .profile-element {
@@ -359,7 +364,7 @@ input {
 
 .profile-expand {
   margin-top: 0px;
-  margin-left: -20px;
+  /* margin-left: -20px; */
 }
 
 .profile-info { /*can't get same line for some reason*/
