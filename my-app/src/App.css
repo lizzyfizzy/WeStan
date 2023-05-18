@@ -52,6 +52,9 @@ img {
   font-size: 23px;
   text-align: left;
 }
+.sidenav a {
+  width: 100%;
+}
 .pages
 {
   width: 100%;
