@@ -436,7 +436,7 @@ myimg {
   margin-top: 20px;
 }
 
-.header-image img {
+.fill-img {
   flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
@@ -470,7 +470,7 @@ myimg {
   height: 200px;
   background-color: white;
   border-radius: 3px;
-  border: 1px solid #FF8E8E;
+  /* border: 1px solid #FF8E8E; */
 }
 
 .title{
@@ -525,15 +525,15 @@ myimg {
   right: 5px;
   border-radius: 3px;
   background-color:#FF8E8E;
-  width: 100px;
-  height: 50px;
-  margin: 10px;
+  width: 80px;
+  height: 40px;
+  margin: 8px;
 }
 
 .button-text {
   color: white;
-  margin-top: 12px;
-  font-size: 20px;
+  margin-top: 10px;
+  font-size: 16px;
 }
 
 .section-header {
@@ -549,10 +549,77 @@ myimg {
 .edit-button {
   border-radius: 3px;
   background-color:#FF8E8E;
-  width: 120px;
-  height: 50px;
+  width: 110px;
+  height: 40px;
   margin: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+
+.discover-recommendations {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.discover-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.group-recommendation {
+  background-color: white;
+  border-radius: 3px;
+  border: 2px solid #FF8E8E;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  padding: 7px;
+  width: 400px;
+  position: relative;
+  
+}
+
+.group-rec-header {
+  flex-grow: 1 2;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.group-rec-img {
+  border-radius: 50px;
+  background-color:#FF8E8E;
+  width: 100px;
+  height: 100px;
+}
+
+.followed-by-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.following-profiles {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+}
+
+.join-button {
+  border-radius: 3px;
+  background-color:#FF8E8E;
+  width: 80px;
+  height: 40px;
+  margin: 8px;
+}
+
+/* .profile-icon {
+  border-radius: 2px;
+  border: 1px solid #FF8E8E;
+} */

@@ -3,13 +3,14 @@ import React from 'react';
 import link from './icons/link.svg';
 import dropdown from './icons/dropdown-arrow.svg';
 import beyonce_tour from "./images/beyonce-tour.png"
+import daph_frvr from "./images/profile_pics/daphne_frvr.svg"
 
 function Profile() {
     return (
         <div className='feed'>
             <div className='post-container'>
                 <div className='header-image'>
-                    <img src={beyonce_tour}/>
+                    <img className='fill-img' src={beyonce_tour}/>
                 </div>
                 <div className='profile-plate'>
                     <div className='follow-button'>
@@ -17,11 +18,13 @@ function Profile() {
                             Follow
                         </div>
                     </div>
-                    <div className='user-profile-image'></div>
+                    <div className='user-profile-image'>
+                        <img className='fill-img' src={daph_frvr}/>
+                    </div>
                     <div className='profile-details'>
                         <div className='title-card'>
                             <div className='title'>daphnefrvr</div>
-                            <div className='profile-text'>"stan twitter whom ?"</div>'
+                            <div className='profile-text'>"stan twitter whom ?"</div>
                         </div>
                         <div className='stats'>
                             <div className='stat-column'>
