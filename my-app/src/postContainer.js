@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getDatabase, set, ref, child, get } from "firebase/database";
+import { getDatabase, set, push, ref, child, get } from "firebase/database";
 import database from "./firebase";
 
 import logo from './icons/crown logo.svg';
@@ -81,33 +81,28 @@ function toggleYasses(e) {
   }
 }
 
-function submitComment(e) {
+function submitComment(e, index) {
   var myself = e.target;
   var sibling = myself.previousElementSibling;
-  console.log(sibling.value);
-  set(ref(database, 'testcomments/'), {
+
+  const postListRef = ref(database, 'posts/' + index.index + '/comments');
+  const newPostRef = push(postListRef);
+  set(newPostRef, {
     comment: sibling.value,
+    profileImage: "daphne_frvr",
   });
-  // var parent = document.getElementById(myself.id).parentElement;
-  // if(parent.style.backgroundColor === "white") {
-  //   //make it dark, show commentsBox
-  //   myself.src = yasses_dark;
-  //   parent.style.backgroundColor = "#FF8E8E";
-  // } else {
-  //   myself.src = yasses_light;
-  //   parent.style.backgroundColor = "white";
-  // }
+  alert("Thanks! Your comment is awaiting moderation.");
+  sibling.value = "Write a comment"
+
 }
 
 function toggleComments(e) {
   var myself = e.target;
   var parent = document.getElementById(myself.id).parentElement;
-  console.log(parent.id);
   var grandparent = document.getElementById(parent.id).parentElement;
   var ggrandparent = document.getElementById(grandparent.id).parentElement;
   var gggrandparent = document.getElementById(ggrandparent.id).parentElement;
   var commentsBox = document.getElementById(gggrandparent.id).nextSibling;
-  console.log(commentsBox.id);
   if (document.getElementById(commentsBox.id).style.display === "none") {
     //make it dark, show commentsBox
     myself.src = comments_dark;
@@ -180,7 +175,7 @@ class PostContainer extends React.Component {
   render() {
     return (
       <div className="post-container">
-        {this.state.posts.map(post => {
+        {this.state.posts.map((post, index) => {
           if (post.type === "remix") {
             return (
               <div key={post.type}>
@@ -254,12 +249,25 @@ class PostContainer extends React.Component {
                 <div id="comment-box-1" className="comments-wrapper">
                   <div className="comments-arrow"></div>
                   <div className="comments-container">
+                    {post.comments ? Object.keys(post.comments).map((comment, i) => {
+                      return (<div className="single-comment" key={i}>
+                        <div className="commenter-profile right-box">
+                          <img className="box-content" src={images[post.comments[comment].profileImage]} alt={post.comments[comment].profileImage}></img>
+                        </div>
+                        <div className="comment-text text-content">
+                          {post.comments[comment].comment}
+                        </div>
+                      </div>)
+                    }) : null}
                     <div className="write-comment">
                       <div className="my-profile right-box">
                         <img className="box-content" src={daphne_frvr} alt="daphne_frvr"></img>
                       </div>
                       <input className="comment-input" type="text" defaultValue="Write a comment"></input>
-                      <button onClick={submitComment}>Submit</button>
+                      <button onClick={(e) => { 
+                        submitComment(e, { index });
+
+                        }}>Submit</button>
                     </div>
                   </div>
                 </div>
@@ -304,20 +312,22 @@ class PostContainer extends React.Component {
                 <div id="comments-box-2" className="comments-wrapper">
                   <div className="comments-arrow"></div>
                   <div className="comments-container">
-                    <div className="single-comment">
-                      <div className="commenter-profile right-box">
-                        <img className="box-content" src={blue_frog} alt="blue_frog"></img>
-                      </div>
-                      <div className="comment-text text-content">
-                        idk i think ur right!!!
-                      </div>
-                    </div>
+                    {post.comments ? Object.keys(post.comments).map((comment, i) => {
+                      return (<div className="single-comment" key={i}>
+                        <div className="commenter-profile right-box">
+                          <img className="box-content" src={images[post.comments[comment].profileImage]} alt={post.comments[comment].profileImage}></img>
+                        </div>
+                        <div className="comment-text text-content">
+                          {post.comments[comment].comment}
+                        </div>
+                      </div>)
+                    }) : null}
                     <div className="write-comment">
                       <div className="my-profile right-box">
                         <img className="box-content" src={daphne_frvr} alt="daphne_frvr"></img>
                       </div>
                       <input className="comment-input" type="text" defaultValue="Write a comment"></input>
-                      <button onClick={submitComment}>Submit</button>
+                      <button onClick={(e) => { submitComment(e, { index }) }}>Submit</button>
                     </div>
                   </div>
                 </div>
@@ -377,11 +387,22 @@ class PostContainer extends React.Component {
                 <div id="comments-box-3" className="comments-wrapper">
                   <div className="comments-arrow"></div>
                   <div className="comments-container">
+                    {post.comments ? Object.keys(post.comments).map((comment, i) => {
+                      return (<div className="single-comment" key={i}>
+                        <div className="commenter-profile right-box">
+                          <img className="box-content" src={images[post.comments[comment].profileImage]} alt={post.comments[comment].profileImage}></img>
+                        </div>
+                        <div className="comment-text text-content">
+                          {post.comments[comment].comment}
+                        </div>
+                      </div>)
+                    }) : null}
                     <div className="write-comment">
                       <div className="my-profile right-box">
                         <img className="box-content" src={daphne_frvr} alt="daphne_frvr"></img>
                       </div>
-                      <input className="comment-input" type="text" value="Write a comment"></input>
+                      <input className="comment-input" type="text" defaultValue="Write a comment"></input>
+                      <button onClick={(e) => { submitComment(e, { index }) }}>Submit</button>
                     </div>
                   </div>
                 </div>
