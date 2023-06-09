@@ -1,4 +1,11 @@
 import React from 'react';
+import { useEffect } from "react";
+
+
+import { getDatabase, set, ref} from "firebase/database";
+import database from "./firebase";
+
+import PostContainer from "./postContainer";
 
 import logo from './icons/crown logo.svg';
 import discover_logo from './icons/Union.svg';
@@ -33,6 +40,12 @@ import nicki_minaj from "./icons/Nicki_minaj.svg";
 
 
 function Homepage() {
+  // useEffect(() => {
+  //   generateHTML();
+  // }, []);
+  
+
+
   function toggleDownload(e) {
     var myself = e.target;
     var parent = document.getElementById(myself.id).parentElement;
@@ -80,6 +93,24 @@ function Homepage() {
     }
   }
 
+  function submitComment(e) {
+    var myself = e.target;
+    var sibling = myself.previousElementSibling;
+    console.log(sibling.value);
+    set(ref(database, 'testcomments/'), {
+      comment: sibling.value,
+    });
+    // var parent = document.getElementById(myself.id).parentElement;
+    // if(parent.style.backgroundColor === "white") {
+    //   //make it dark, show commentsBox
+    //   myself.src = yasses_dark;
+    //   parent.style.backgroundColor = "#FF8E8E";
+    // } else {
+    //   myself.src = yasses_light;
+    //   parent.style.backgroundColor = "white";
+    // }
+  }
+
   function toggleComments(e) {
     var myself = e.target;
     var parent = document.getElementById(myself.id).parentElement;
@@ -100,96 +131,204 @@ function Homepage() {
       commentsBox.style.display = "none";
     }
   }
+
+  // function generateHTML() {
+  //   var feed = document.getElementById('feed');
+    
+  //   //repetitive part
+  //   var postContainer = document.createElement("div");
+  //   postContainer.classList.add("post-container");
+
+  //   var post = document.createElement("div");
+  //   post.classList.add("remix-post");  //type 
+  //   post.classList.add("post");
+  //   post.setAttribute("id", "post-1");
+
+  //   var leftBar = document.createElement("div");
+  //   leftBar.classList.add("left-bar");
+
+  //   var artistPic = document.createElement("div");
+  //   artistPic.classList.add("artist-pic");
+
+  //   var artistContent = document.createElement("img");
+  //   artistContent.classList.add("artist-content");
+  //   artistContent.setAttribute("src", {lady_gaga});
+  //   artistContent.setAttribute("alt", "lady_gaga");
+
+  //   artistPic.appendChild(artistContent);
+  //   leftBar.appendChild(artistPic);
+
+  //   var typeIndicator = document.createElement("div");
+  //   typeIndicator.classList.add("type-indicator");
+
+  //   var typeImage = document.createElement("img");
+  //   typeImage.classList.add("type-image");
+  //   typeImage.setAttribute("src", {audio_post});
+  //   typeImage.setAttribute("alt", "audio_post");
+
+  //   typeIndicator.appendChild(typeImage);
+  //   leftBar.appendChild(typeIndicator);
+  //   post.appendChild(leftBar);
+
+  //   var mainContent = document.createElement("div");
+  //   mainContent.classList.add("main-content");
+  //   mainContent.setAttribute("id", "main-1");
+
+  //   var remixParent = document.createElement("div");
+  //   remixParent.classList.add("remix-parent");
+
+  //   var remixContent = document.createElement("div");
+  //   remixContent.classList.add("remix-content");
+
+  //   var remixImage = document.createElement("div");
+  //   remixImage.classList.add("remix-image");
+
+  //   var audioImage = document.createElement("img");
+  //   audioImage.classList.add("audio-image");
+  //   audioImage.setAttribute("src", {gaga_image});
+  //   audioImage.setAttribute("alt", "gaga_image");
+
+  //   remixImage.appendChild(audioImage);
+  //   remixContent.appendChild(remixImage);
+
+  //   var remixInfo = document.createElement("div");
+  //   remixInfo.classList.add("remix-info");
+
+  //   var remixName = document.createElement("div");
+  //   remixName.classList.add("remix-name");
+  //   remixName.classList.add("text-content");
+  //   remixName.setAttribute("innerHTML", "bad romance - breakcore edit");
+
+  //   remixInfo.appendChild(remixName);
+
+  //   var remixAudio = document.createElement("audio");
+  //   remixAudio.classList.add("remix-audio"); //may have "controls" issues
+  //   remixAudio.setAttribute("innerHTML", "Your browser does not support the audio element.");
+
+  //   var source = document.createElement("source");
+  //   source.setAttribute("src", "horse.mp3");
+  //   source.setAttribute("type", "audio/mpeg");
+
+  //   remixAudio.appendChild(source);
+  //   remixInfo.appendChild(remixAudio);
+  //   remixContent.appendChild(remixInfo);
+  //   remixParent.appendChild(remixContent);
+
+  //   var remixCaption = document.createElement("div");
+  //   remixCaption.classList.add("remix-caption");
+  //   remixCaption.classList.add("textContent");
+  //   remixCaption.setAttribute("innerHTML", "Hope you like this edit!");
+
+  //   remixParent.appendChild(remixCaption);
+  //   mainContent.appendChild(remixParent);
+
+  //   var rightBar = document.createElement("div");
+  //   rightBar.classList.add("right-bar");
+  //   rightBar.setAttribute("id", "right-1");
+
+  //   var posterProfile = document.createElement("div");
+  //   posterProfile.classList.add("poster-profile");
+  //   posterProfile.classList.add("right-box");
+  //   posterProfile.classList.add("top"); //will have to be different
+  //   posterProfile.setAttribute("id", "profile-2");
+
+  //   var profile = document.createElement("img");
+  //   profile.classList.add("box-content");
+  //   profile.setAttribute("id", "profile-1");
+  //   profile.setAttribute("src", {anime_dude});
+  //   profile.setAttribute("alt", "anime_dude");
+
+  //   profile.addEventListener("click", () => {
+  //     toggleProfile();
+  //   });
+
+  //   posterProfile.appendChild(profile);
+  //   rightBar.appendChild(posterProfile);
+
+  //   var rightFiller = document.createElement("div");
+  //   rightFiller.classList.add("right-filler");
+
+  //   rightBar.appendChild(rightFiller);
+
+  //   var download = document.createElement("div");
+  //   download.classList.add("download");
+  //   download.classList.add("right-box");
+  //   download.classList.add("center");
+  //   download.setAttribute("id", "download-2");
+
+  //   download.addEventListener("click", () => {
+  //     toggleDownload();
+  //   });
+
+  //   var download1 = document.createElement("img");
+  //   download1.classList.add("box-content");
+  //   download1.setAttribute("id", "download-1");
+  //   download1.setAttribute("src", {download_light});
+  //   download1.setAttribute("alt", "download_light");
+
+  //   download.appendChild(download1);
+  //   rightBar.appendChild(download);
+
+  //   var yasses = document.createElement("div");
+  //   yasses.classList.add("yasses");
+  //   yasses.classList.add("right-box");
+  //   yasses.classList.add("center");
+  //   yasses.setAttribute("id", "yasses-2");
+
+  //   var yasses1 = document.createElement("img");
+  //   yasses1.classList.add("box-content");
+  //   yasses1.setAttribute("id", "yasses-1");
+  //   yasses1.setAttribute("src", {yasses_light});
+  //   yasses1.setAttribute("alt", "yasses_light");
+
+  //   yasses1.addEventListener("click", () => {
+  //     toggleYasses();
+  //   });
+
+  //   yasses.appendChild(yasses1);
+  //   rightBar.appendChild(yasses);
+
+  //   var comments = document.createElement("div");
+  //   comments.classList.add("comments");
+  //   comments.classList.add("right-box");
+  //   comments.classList.add("bottom");
+  //   comments.setAttribute("id", "comments-2");
+
+  //   comments.addEventListener("click", () => {
+  //     toggleComments();
+  //   });
+
+  //   var comments1 = document.createElement("img");
+  //   comments1.classList.add("box-content");
+  //   comments1.setAttribute("id", "comments-1");
+  //   comments1.setAttribute("src", {comments_light});
+  //   comments1.setAttribute("alt", "comments_light");
+
+  //   comments.appendChild(comments1);
+  //   rightBar.appendChild(comments);
+  //   mainContent.appendChild(rightBar);
+  //   post.appendChild(mainContent);
+
+  //   postContainer.appendChild(post);
+  //   feed.appendChild(postContainer);
+
+  // }
+
+  
+
   
 
     return (
-        <div className="feed">
-            <header className="App-header">
-                <p>
-                WeStan
-                </p>
-            </header>
-        <div className="post-container">
-          <div id="post-1" className="remix-post post">
-            <div className="left-bar">
-              <div className="artist-pic">
-                <img className="artist-content" src={lady_gaga} alt="lady_gaga"></img>
-              </div>
-              <div className="type-indicator">
-                <img className="type-image" src={audio_post} alt="audio_post"></img>
-              </div>
-            </div>
-            <div id="main-1" className="main-content">
-              <div className="remix-parent">
-                <div className="remix-content">
-                  <div className="remix-image"> {/*phase out*/}
-                    <img className="audio-image" src={gaga_image} alt="gaga_image"></img>
-                  </div>
-                  <div className="remix-info">
-                    <div className="remix-name text-content">
-                      bad romance - breakcore edit
-                    </div>
-                    {/* <audio className="remix-audio"></audio> */}
-                    <audio controls className="remix-audio">
-                      <source src="horse.mp3" type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                    </audio>
-                  </div>
-                </div>
-                <div className="remix-caption text-content">
-                  Hope you like this edit!
-                </div>
-              </div>
-              <div id="right-1" className="right-bar">
-                <div id="profile-2" className="poster-profile right-box top">
-                  <img id="profile-1" onClick={toggleProfile} className="box-content" src={anime_dude} alt="anime_dude"></img>
-                </div>
-                <div className="right-filler"></div>
-                <div id="download-2" onClick={toggleDownload} className="download right-box center">
-                  <img id="download-1" className="box-content" src={download_light} alt="download_light"></img>
-                </div>
-                <div id="yasses-2" className="yasses right-box center">
-                  <img id="yasses-1"  className="box-content" src={yasses_light} alt="yasses_light" onClick={toggleYasses}></img>
-                </div>
-                <div id="comments-2" onClick={toggleComments} className="comments right-box bottom">
-                  <img id="comments-1" className="box-content" src={comments_light} alt="comments_light"></img>
-                </div>
-              </div>
-            </div>
-            <div id="bad-romance-download-box" className="triangle-left">
-              <div className="inner-triangle"></div>
-              <div className="download-box">
-                <div className="download-element">
-                  <div className="file-info text-content">badromancebreakcore.wav - 32.5 MB</div>
-                  <div className="download-button type-indicator"></div>
-                </div>
-                <div className="download-element">
-                  <div className="file-info text-content">badromanceAcapella.wav - 28.2 MB</div>
-                  <div className="download-button type-indicator"></div>
-                </div>
-              </div>
-            </div>
-            <div id="profile-name-1" className="profile-expand triangle-left">
-              <div className="inner-triangle"></div>
-              <div className="profile-element download-box">
-                <div className="profile-info text-content">anime_dude</div>
-                <div className="report-profile text-content">Report Post?</div>
-              </div>
-            </div>
-          </div>
-          <div id="comment-box-1" className="comments-wrapper">
-            <div className="comments-arrow"></div>
-            <div className="comments-container">
-              <div className="write-comment">
-                <div className="my-profile right-box">
-                  <img className="box-content" src={daphne_frvr} alt="daphne_frvr"></img>
-                </div>
-                <input className="comment-input" type="text" value="Write a comment"></input>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="post-container">
+      <div className="feed">
+          <header className="App-header">
+              <p>
+              WeStan
+              </p>
+          </header>
+        {/* <div className="post-container"> */}
+           <PostContainer />
+        {/* </div> */}
+        {/* <div className="post-container">
           <div id="post-2" className="text-post post">
             <div className="left-bar">
               <div className="artist-pic">
@@ -239,12 +378,13 @@ function Homepage() {
                 <div className="my-profile right-box">
                   <img className="box-content" src={daphne_frvr} alt="daphne_frvr"></img>
                 </div>
-                <input className="comment-input" type="text" value="Write a comment"></input>
+                <input className="comment-input" type="text" defaultValue="Write a comment"></input>
+                <button onClick={submitComment}>Submit</button>
               </div>
             </div>
           </div>
-        </div>
-        <div className="post-container">
+        </div> */}
+        {/* <div className="post-container">
           <div id="post-3" className="image-post post">
             <div className="left-bar">
               <div className="artist-pic">
@@ -305,9 +445,8 @@ function Homepage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
-
         );
     }
     
